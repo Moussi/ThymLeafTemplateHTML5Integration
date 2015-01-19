@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr" class="app" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" charset="UTF-8"
+	content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" th:href="@{/css/app.v1.css}" type="text/css" />
+<link rel="stylesheet" th:href="@{/js/calendar/bootstrap_calendar.css}"
+	type="text/css" />
+<link rel="stylesheet" th:href="@{/css/jquery-ui.css}" />
+</head>
+<body>
+	<section class="vbox">
+		<div th:include="common/header.html" th:remove="tag"></div>
+		<section>
+			<section class="hbox stretch">
+				<div th:include="common/menu.html" th:remove="tag"></div>
+
+				<section id="content">
+					<section class="vbox">
+						<section class="scrollable padder">
+							<div class="m-b-md">
+								<h3 class="m-b-none">Nouveau Type Comparant</h3>
+							</div>
+							<div class="row">
+								<!--               <div class="col-sm-6"> -->
+
+
+								<form th:object="${typeComparant}" id="wizardform" method="post"
+									th:action="@{/typeComparant/update}">
+
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<ul class="nav nav-tabs font-bold">
+												<li><a href="#step1" data-toggle="tab">Etape 1</a></li>
+
+												<li><a href="#step2" data-toggle="tab">Etape 2</a></li>
+												<li><a href="#step3" data-toggle="tab">Etape 3</a></li>
+												<li><a href="#step4" data-toggle="tab">Etape 4</a></li>
+												<li><a href="#step5" data-toggle="tab">Etape 5</a></li>
+											</ul>
+										</div>
+										<div class="panel-body">
+											<p>Allégoria Type Piece</p>
+											<div class="line line-lg"></div>
+											<h4>Type Piece</h4>
+											<div class="progress progress-xs m-t-md">
+												<div class="progress-bar bg-success"></div>
+											</div>
+											<div class="tab-content">
+
+												<div class="tab-pane" id="step1">
+													<p>Libelle:</p>
+													<input type="text" class="form-control"
+														data-trigger="change" th:field="*{libelle}"
+														placeholder="libelle..." />
+													<p>Nom:</p>
+													<input type="text" class="form-control"
+														data-trigger="change" th:field="*{nom}"
+														placeholder="nom..." />
+													<p>Objet:</p>
+													<input type="text" class="form-control"
+														data-trigger="change" th:field="*{objet}"
+														placeholder="objet..." />
+													<input type="hidden" class="form-control"
+														data-trigger="change" th:field="*{id}"
+														placeholder="objet..." />
+																										
+													<ul>
+														<li><input type="checkbox" th:field="*{autre}" /> <label>Autre</label></li>
+														<li><input type="checkbox" th:field="*{multiple}" /> <label>Multiple</label></li>
+														<li><input type="checkbox" th:field="*{presenceAdresse}" /> <label>PresenceAdresse</label></li>
+														<li><input type="checkbox" th:field="*{presenceEffetRelatif}" /> <label>PresenceEffetRelatif</label></li>
+														<li><input type="checkbox" th:field="*{presenceObligatoire}" /> <label>PresenceObligatoire</label></li>
+													</ul>
+				
+
+												</div>
+												<div class="tab-pane" id="step2">
+													<header class="panel-heading">
+														<h1><b>TypesPieces: </b></h1> <i class="fa fa-info-sign text-muted"
+															data-toggle="tooltip" data-placement="bottom"
+															data-title="ajax to load the data."></i>
+													</header>
+													<div class="table-responsive">
+														<table id="typesPieces" dt:table="true" dt:pageable="true"
+															dt:displayLength="5" class="table table-striped m-b-none">
+															<thead>
+																<tr>
+
+																	<th width="20"></th>
+																	<th>TypesPieces</th>
+																	<th>Choix</th>
+																	<th width="30"></th>
+																</tr>
+															</thead>
+															<tbody>
+
+																<tr th:each="typesPiece : ${typesPieces}">
+
+																	<td><a href="#modal" data-toggle="modal"
+																		th:onclick="'javascript:show(\'' + ${typesPiece} + '\');'"><i
+																			class="fa fa-search-plus text-muted"></i></a></td>
+																	<td th:text="${typesPiece.genre}">Idrawfast</td>
+																	<td>
+																			
+																			<input type="checkbox" th:id="${{typesPiece}}" th:value="${{typesPiece}}" th:field="*{typesPieces}" />
+				
+																			</td>
+																	<td></td>
+																</tr>
+
+															</tbody>
+														</table>
+													</div>
+												</div>
+												<div class="tab-pane" id="step3">
+													<header class="panel-heading">
+														<h1><b>TypesRelations: </b></h1> <i class="fa fa-info-sign text-muted"
+															data-toggle="tooltip" data-placement="bottom"
+															data-title="ajax to load the data."></i>
+													</header>
+													<div class="table-responsive">
+														<table id="typesDossiers" dt:table="true" dt:pageable="true"
+															dt:displayLength="5" class="table table-striped m-b-none">
+															<thead>
+																<tr>
+
+																	<th width="20"></th>
+																	<th>TypesRelations</th>
+																	<th>Choix</th>
+																	<th width="30"></th>
+																</tr>
+															</thead>
+															<tbody>
+
+																<tr th:each="typeRelation : ${typesRelations}">
+
+																	<td><a href="#modal" data-toggle="modal"
+																		th:onclick="'javascript:show(\'' + ${typeRelation} + '\');'"><i
+																			class="fa fa-search-plus text-muted"></i></a></td>
+																	<td th:text="${typeRelation.nomRelation}">Idrawfast</td>
+																	<td>
+																			
+																			<input type="checkbox" th:id="${{typeRelation}}" th:value="${{typeRelation}}" th:field="*{typesRelation}" />
+				
+																			</td>
+																	<td></td>
+																</tr>
+
+															</tbody>
+														</table>
+													</div>
+												</div>
+												<div class="tab-pane" id="step4">
+													<header class="panel-heading">
+														<h1><b>TypesActes: </b></h1> <i class="fa fa-info-sign text-muted"
+															data-toggle="tooltip" data-placement="bottom"
+															data-title="ajax to load the data."></i>
+													</header>
+													<div class="table-responsive">
+														<table id="typesActes" dt:table="true" dt:pageable="true"
+															dt:displayLength="5" class="table table-striped m-b-none">
+															<thead>
+																<tr>
+
+																	<th width="20"></th>
+																	<th>TypesActes</th>
+																	<th>Choix</th>
+																	<th width="30"></th>
+																</tr>
+															</thead>
+															<tbody>
+
+																<tr th:each="typeActe : ${typesActes}">
+
+																	<td><a href="#modal" data-toggle="modal"
+																		th:onclick="'javascript:show(\'' + ${typeActe} + '\');'"><i
+																			class="fa fa-search-plus text-muted"></i></a></td>
+																	<td th:text="${typeActe.libelle}">Idrawfast</td>
+																	<td>
+																			
+																			<input type="checkbox" th:id="${{typeActe}}" th:value="${{typeActe}}" th:field="*{typesActe}" />
+				
+																			</td>
+																	<td></td>
+																</tr>
+
+															</tbody>
+														</table>
+													</div>
+												</div>
+												
+												<div class="tab-pane" id="step5">
+
+													<center>
+														<input type="submit" value="Sauver Type Comaparant"
+															class="btn btn-s-md btn-dark btn-rounded" />
+														<!-- 														<button type="submit" value="Sauver Office" -->
+														<!-- 															class="btn btn-s-md btn-dark btn-rounded" /> -->
+													</center>
+
+												</div>
+												<ul class="pager wizard m-b-sm">
+													<li class="previous first" style="display: none;"><a
+														href="#">First</a></li>
+													<li class="previous"><a href="#">Previous</a></li>
+													<li class="next last" style="display: none;"><a
+														href="#">Last</a></li>
+													<li class="next"><a href="#">Next</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</form>
+
+
+
+							</div>
+						</section>
+					</section>
+					<a href="#" class="hide nav-off-screen-block"
+						data-toggle="class:nav-off-screen" data-target="#nav"></a>
+				</section>
+			</section>
+
+		</section>
+	</section>
+
+
+	<!-- Bootstrap -->
+	<!-- App -->
+
+	<div class="modal fade" id="modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModal">Idrawfast 02/2013</h4>
+				</div>
+				<div class="modal-body">
+					<p>This is a table in a modal, click the trash icon to remove
+						the item</p>
+					<section class="panel panel-default m-l-n-md m-r-n-md m-b-none">
+						<header class="panel-heading">
+							<span class="label bg-danger pull-right">4 left</span> Tasks
+						</header>
+						<table class="table table-striped m-b-none text-sm">
+							<thead>
+								<tr>
+									<th>Progress</th>
+									<th>Item</th>
+									<th width="20"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="item-1">
+									<td><div
+											class="progress progress-sm progress-striped active m-t-xs m-b-none">
+											<div class="progress-bar progress-bar-success"
+												data-toggle="tooltip" data-original-title="80%"
+												style="width: 80%"></div>
+										</div></td>
+									<td>App prototype design</td>
+									<td class="text-right"><a href="#item-1"
+										data-dismiss="alert"><i class="fa fa-trash-o"></i></a></td>
+								</tr>
+								<tr id="item-2">
+									<td><div class="progress progress-xs m-t-xs m-b-none">
+											<div class="progress-bar progress-bar-info"
+												data-toggle="tooltip" data-original-title="40%"
+												style="width: 40%"></div>
+										</div></td>
+									<td>Design documents</td>
+									<td class="text-right"><a href="#item-2"
+										data-dismiss="alert"><i class="fa fa-trash-o"></i></a></td>
+								</tr>
+								<tr id="item-3">
+									<td><div class="progress progress-xs m-t-xs m-b-none">
+											<div class="progress-bar progress-bar-warning"
+												data-toggle="tooltip" data-original-title="20%"
+												style="width: 20%"></div>
+										</div></td>
+									<td>UI toolkit</td>
+									<td class="text-right"><a href="#item-3"
+										data-dismiss="alert"><i class="fa fa-trash-o"></i></a></td>
+								</tr>
+								<tr id="item-4">
+									<td><div class="progress progress-xs m-t-xs m-b-none">
+											<div class="progress-bar progress-bar-danger"
+												data-toggle="tooltip" data-original-title="15%"
+												style="width: 15%"></div>
+										</div></td>
+									<td>Testing</td>
+									<td class="text-right"><a href="#item-4"
+										data-dismiss="alert"><i class="fa fa-trash-o"></i></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-rounded"
+						data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-info btn-rounded"
+						data-loading-text="Updating...">OK</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<script language="javascript">
+		function show(company) {
+			console.log(company);
+			$("#myModal").text(company);
+			console.log($("#myModal").val());
+		}
+		$(function() {
+			$("#dateAcheve").datepicker();
+		});
+		$(function() {
+			$("#modifieLe").datepicker();
+		});
+	</script>
+
+	<!-- JS Includes -->
+	<!-- Bootstrap -->
+	<!-- App -->
+	<script th:src="@{/js/app.v1.js}"></script>
+	<!-- datepicker -->
+
+
+	<script th:src="@{/js/jquery-ui.js}"></script>
+	<!--   	<script th:src="@{/js/jquery.ui.datepicker.js}"></script> -->
+	<script th:src="@{/js/parsley/parsley.min.js}"></script>
+	<script th:src="@{/js/wizard/jquery.bootstrap.wizard.js}"></script>
+	<script th:src="@{/js/wizard/demo.js}"></script>
+	<script th:src="@{/js/app.plugin.js}"></script>
+
+</body>
+</html>

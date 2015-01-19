@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr" class="app" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" charset="UTF-8"
+	content="text/html; charset=utf-8" />
+	
+<link rel="stylesheet" th:href="@{/css/app.v1.css}" type="text/css" />
+<link rel="stylesheet" th:href="@{/js/calendar/bootstrap_calendar.css}"
+	type="text/css" />
+	<link rel="stylesheet" th:href="@{/css/jquery-ui.css}" />
+</head>
+<body>
+<div th:include="common/globalheader.html" th:remove="tag"></div>
+	<section class="vbox">
+		<div th:include="common/header.html" th:remove="tag"></div>
+		<section>
+			<section class="hbox stretch">
+				<div th:include="common/menu.html" th:remove="tag"></div>
+
+				<section id="content">
+					<section class="vbox">
+						<section class="scrollable padder">
+							<div class="m-b-md">
+								<h3 class="m-b-none">Nouveau Clerc</h3>
+							</div>
+							<div class="row">
+								<!--               <div class="col-sm-6"> -->
+
+
+								<form th:object="${clerc}" id="wizardform" method="post"
+									th:action="@{/clerc/update}">
+
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<ul class="nav nav-tabs font-bold">
+												<li><a href="#step1" data-toggle="tab">Etape 1</a></li>
+												<li><a href="#step2" data-toggle="tab">Etape 2</a></li>
+												<li><a href="#step3" data-toggle="tab">Etape 3</a></li>
+											</ul>
+										</div>
+										<div class="panel-body">
+											<p>Allégoria Clerc</p>
+											<div class="line line-lg"></div>
+											<h4>Clerc</h4>
+											<div class="progress progress-xs m-t-md">
+												<div class="progress-bar bg-success"></div>
+											</div>
+											<div class="tab-content">
+
+												<div class="tab-pane" id="step1">
+													<p>Code:</p>
+													<input type="number" class="form-control"
+														data-trigger="change" th:field="*{code}"
+														placeholder="code..." />
+													<p class="m-t">Login:</p>
+													<input type="text" class="form-control"
+														th:field="*{login}" data-trigger="change"
+														placeholder="login..." />
+													<p>Titre:</p>
+													<input type="text" class="form-control"
+														th:field="*{titre}" data-trigger="change"
+														placeholder="titre..." />
+													<p>TitreAbrege:</p>
+													<input type="text" class="form-control"
+														th:field="*{titreAbrege}" data-trigger="change"
+														placeholder="titreAbrege..." />
+													<p>Nom:</p>
+													<input type="nom" class="form-control" th:field="*{nom}"
+														data-trigger="change" placeholder="nom..." />
+													<p>Prenom:</p>
+													<input type="text" class="form-control"
+														th:field="*{prenom}" data-trigger="change"
+														placeholder="prenom..." />
+													<p>service:</p>
+													<input type="text" class="form-control" th:field="*{service}"
+														data-trigger="change" placeholder="service..." />
+													<p>email:</p>
+													<input type="text" class="form-control" th:field="*{email}"
+														data-trigger="change" placeholder="email..." />
+														<p>telephonePortable:</p>
+													<input type="text" class="form-control" th:field="*{telephonePortable}"
+														data-trigger="change" placeholder="telephonePortable..." />
+														<p>ligneDirecte:</p>
+													<input type="text" class="form-control" th:field="*{ligneDirecte}"
+														data-trigger="change" placeholder="ligneDirecte..." />
+														<p>fax:</p>
+													<input type="text" class="form-control" th:field="*{fax}"
+														data-trigger="change" placeholder="fax..." />
+														<p>identifiantElectronique:</p>
+													<input type="text" class="form-control" th:field="*{identifiantElectronique}"
+														data-trigger="change" placeholder="identifiantElectronique..." />
+														<p>smtpServerUrl:</p>
+													<input type="text" class="form-control" th:field="*{smtpServerUrl}"
+														data-trigger="change" placeholder="smtpServerUrl..." />
+														<p>popServerUrl:</p>
+													<input type="text" class="form-control" th:field="*{popServerUrl}"
+														data-trigger="change" placeholder="popServerUrl..." />
+														<p>mailServersLogin:</p>
+													<input type="text" class="form-control" th:field="*{mailServersLogin}"
+														data-trigger="change" placeholder="mailServersLogin..." />
+														<p>mailServersPassword:</p>
+													<input type="text" class="form-control" th:field="*{mailServersPassword}"
+														data-trigger="change" placeholder="mailServersPassword..." />
+														<p>mailReplyTo:</p>
+													<input type="text" class="form-control" th:field="*{mailReplyTo}"
+														data-trigger="change" placeholder="mailReplyTo..." />
+														<p>motPasseGenere:</p>
+													<input type="text" class="form-control" th:field="*{motPasseGenere}"
+														data-trigger="change" placeholder="motPasseGenere..." />
+														<p>dateGenerationMotPasse:</p>
+														<input id="dateGenerationMotPasse" type="text"
+														class="input-sm input-s datepicker-input form-control"
+														th:field="*{dateGenerationMotPasse}" data-date-format="dd-mm-yyyy" />
+														<p>numeroIMEI:</p>
+													<input type="text" class="form-control" th:field="*{numeroIMEI}"
+														data-trigger="change" placeholder="numeroIMEI..." />
+														<p>signatureTexte:</p>
+													<input type="text" class="form-control" th:field="*{signatureTexte}"
+														data-trigger="change" placeholder="signatureTexte..." />
+														<p>signature:</p>
+													<input type="text" class="form-control" th:field="*{signature}"
+														data-trigger="change" placeholder="signature..." />
+														<p>loginComptaVisu:</p>
+													<input type="text" class="form-control" th:field="*{loginComptaVisu}"
+														data-trigger="change" placeholder="loginComptaVisu..." />
+														<p>mdpComptaVisu:</p>
+													<input type="text" class="form-control" th:field="*{mdpComptaVisu}"
+														data-trigger="change" placeholder="mdpComptaVisu..." />
+														<p>loginComptaPretaxe:</p>
+													<input type="text" class="form-control" th:field="*{loginComptaPretaxe}"
+														data-trigger="change" placeholder="loginComptaPretaxe..." />
+													<p>mdpComptaPretaxe:</p>
+													<input type="text" class="form-control" th:field="*{mdpComptaPretaxe}"
+														data-trigger="change" placeholder="mdpComptaPretaxe..." />
+														<p>idTransfert:</p>
+													<input type="text" class="form-control" th:field="*{idTransfert}"
+														data-trigger="change" placeholder="idTransfert..." />
+														
+														<p>DateHabilitation:</p>
+														<input id="dateHabilitation" type="text"
+														class="input-sm input-s datepicker-input form-control"
+														th:field="*{dateHabilitation}" data-date-format="dd-mm-yyyy" />
+													
+												</div>
+												<div class="tab-pane" id="step2">
+												<ul>
+														<li><input type="checkbox"
+															th:field="*{infoMel}" /> <label>infoMel</label></li>
+														<li><input type="checkbox"
+															th:field="*{acheve}" /> <label>acheve</label></li>
+															<li><input type="checkbox"
+															th:field="*{officiel}" /> <label>officiel</label></li>
+															<li><input type="checkbox"
+															th:field="*{accesExterieurAutorise}" /> <label>accesExterieurAutorise</label></li>
+															<li><input type="checkbox"
+															th:field="*{accesSmartAutorise}" /> <label>accesSmartAutorise</label></li>
+															<li><input type="checkbox"
+															th:field="*{habilite}" /> <label>habilite</label></li>
+															
+													</ul>	
+
+												</div>
+
+												
+												<div class="tab-pane" id="step3">
+													
+												
+
+													<center>
+														<input type="submit" value="Sauver Notaire"
+															class="btn btn-s-md btn-dark btn-rounded" />
+														<!-- 														<button type="submit" value="Sauver Notaire" -->
+														<!-- 															class="btn btn-s-md btn-dark btn-rounded" /> -->
+													</center>
+
+												</div>
+												<ul class="pager wizard m-b-sm">
+													<li class="previous first" style="display: none;"><a
+														href="#">First</a></li>
+													<li class="previous"><a href="#">Previous</a></li>
+													<li class="next last" style="display: none;"><a
+														href="#">Last</a></li>
+													<li class="next"><a href="#">Next</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</form>
+
+
+
+							</div>
+						</section>
+					</section>
+					<a href="#" class="hide nav-off-screen-block"
+						data-toggle="class:nav-off-screen" data-target="#nav"></a>
+				</section>
+			</section>
+
+		</section>
+	</section>
+
+
+	<!-- Bootstrap -->
+	<!-- App -->
+
+	<div class="modal fade" id="modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModal">Idrawfast 02/2013</h4>
+				</div>
+				<div class="modal-body">
+					<p>This is a table in a modal, click the trash icon to remove
+						the item</p>
+					<section class="panel panel-default m-l-n-md m-r-n-md m-b-none">
+						<header class="panel-heading">
+							<span class="label bg-danger pull-right">4 left</span> Tasks
+						</header>
+						<table class="table table-striped m-b-none text-sm">
+							<thead>
+								<tr>
+									<th>Progress</th>
+									<th>Item</th>
+									<th width="20"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="item-1">
+									<td><div
+											class="progress progress-sm progress-striped active m-t-xs m-b-none">
+											<div class="progress-bar progress-bar-success"
+												data-toggle="tooltip" data-original-title="80%"
+												style="width: 80%"></div>
+										</div></td>
+									<td>App prototype design</td>
+									<td class="text-right"><a href="#item-1"
+										data-dismiss="alert"><i class="fa fa-trash-o"></i></a></td>
+								</tr>
+								<tr id="item-2">
+									<td><div class="progress progress-xs m-t-xs m-b-none">
+											<div class="progress-bar progress-bar-info"
+												data-toggle="tooltip" data-original-title="40%"
+												style="width: 40%"></div>
+										</div></td>
+									<td>Design documents</td>
+									<td class="text-right"><a href="#item-2"
+										data-dismiss="alert"><i class="fa fa-trash-o"></i></a></td>
+								</tr>
+								<tr id="item-3">
+									<td><div class="progress progress-xs m-t-xs m-b-none">
+											<div class="progress-bar progress-bar-warning"
+												data-toggle="tooltip" data-original-title="20%"
+												style="width: 20%"></div>
+										</div></td>
+									<td>UI toolkit</td>
+									<td class="text-right"><a href="#item-3"
+										data-dismiss="alert"><i class="fa fa-trash-o"></i></a></td>
+								</tr>
+								<tr id="item-4">
+									<td><div class="progress progress-xs m-t-xs m-b-none">
+											<div class="progress-bar progress-bar-danger"
+												data-toggle="tooltip" data-original-title="15%"
+												style="width: 15%"></div>
+										</div></td>
+									<td>Testing</td>
+									<td class="text-right"><a href="#item-4"
+										data-dismiss="alert"><i class="fa fa-trash-o"></i></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-rounded"
+						data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-info btn-rounded"
+						data-loading-text="Updating...">OK</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<script language="javascript">
+		function show(company) {
+			console.log(company);
+			$("#myModal").text(company);
+			console.log($("#myModal").val());
+		}
+		$(function() {
+		    $( "#dateGenerationMotPasse" ).datepicker();
+		  });
+		$(function() {
+		    $( "#dateHabilitation" ).datepicker();
+		  });
+	</script>
+	<!-- JS Includes -->
+	<!-- Bootstrap -->
+	<!-- App -->
+	
+	<script th:src="@{/js/app.v1.js}"></script>
+	<script th:src="@{/js/jquery-ui.js}"></script>
+	<script th:src="@{/js/parsley/parsley.min.js}"></script>
+	<script th:src="@{/js/wizard/jquery.bootstrap.wizard.js}"></script>
+	<script th:src="@{/js/wizard/demo.js}"></script>
+	<script th:src="@{/js/app.plugin.js}"></script>
+</body>
+</html>

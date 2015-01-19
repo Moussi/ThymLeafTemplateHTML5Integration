@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="app" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" charset="UTF-8"
+	content="text/html; charset=utf-8" />
+</head>
+<body class="">
+	<div th:include="common/globalheader.html" th:remove="tag"></div>
+	<section class="vbox">
+		<div th:include="common/header.html" th:remove="tag"></div>
+		<section>
+			<section class="hbox stretch">
+				<div th:include="common/menu.html" th:remove="tag"></div>
+
+				<section id="content">
+					<section class="hbox stretch">
+						
+						<aside>
+							<section class="vbox">
+								<header class="header bg-white b-b clearfix">
+									<div class="row m-t-sm">
+										<div class="col-sm-8 m-b-xs">
+											<a href="#subNav" data-toggle="class:hide"
+												class="btn btn-sm btn-default active"><i
+												class="fa fa-caret-right text fa-lg"></i><i
+												class="fa fa-caret-left text-active fa-lg"></i></a>
+											<div class="btn-group">
+												<button type="button" class="btn btn-sm btn-default"
+													title="Refresh">
+													<i class="fa fa-refresh"></i>
+												</button>
+												<button type="button" class="btn btn-sm btn-default"
+													title="Remove">
+													<i class="fa fa-trash-o"></i>
+												</button>
+												<button type="button" class="btn btn-sm btn-default"
+													title="Filter" data-toggle="dropdown">
+													<i class="fa fa-filter"></i> <span class="caret"></span>
+												</button>
+												<ul class="dropdown-menu">
+													<li><a href="#">Action</a></li>
+													<li><a href="#">Another action</a></li>
+													<li><a href="#">Something else here</a></li>
+													<li class="divider"></li>
+													<li><a href="#">Separated link</a></li>
+												</ul>
+											</div>
+											<a th:href="@{/office/create}" data-toggle="ajaxModal"
+												class="btn btn-sm btn-default"><i class="fa fa-plus"></i>
+												Create</a>
+										</div>
+										<div class="col-sm-4 m-b-xs">
+											<div class="input-group">
+												<input type="text" class="input-sm form-control"
+													placeholder="Search"></input> <span class="input-group-btn">
+													<button class="btn btn-sm btn-default" type="button">Go!</button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</header>
+								<section class="scrollable wrapper w-f">
+									<section class="panel panel-default">
+										<div class="table-responsive">
+											<table id="typeSousProduit" dt:table="true" dt:pageable="true"
+															dt:displayLength="7" class="table table-striped m-b-none">
+												<thead>
+													<tr>
+														
+														<th width="20"></th>
+														<th class="th-sortable" data-toggle="class">Libelle<span class="th-sort"> <i
+																class="fa fa-sort-down text"></i> <i
+																class="fa fa-sort-up text-active"></i> <i
+																class="fa fa-sort"></i>
+														</span>
+														</th>
+														
+<!-- 														<th width="30">acheve</th> -->
+														
+
+														<th width="30"></th>
+														<th width="30"></th>
+													</tr>
+												</thead>
+												<tbody>
+
+													<tr th:each="typeCritereAutoGeneration : ${typeCritereAutoGenerations}">
+														
+														<td><a href="#modal" data-toggle="modal"
+															th:onclick="'javascript:show(\'' + ${typeCritereAutoGeneration} + '\');'"><i
+																class="fa fa-search-plus text-muted"></i></a></td>
+														<td th:text="${typeCritereAutoGeneration.libelle}">Idrawfast</td>
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.coupleChangementRegime}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.coupleChangementRegime}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.coupleClassique}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.coupleClassique}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.coupleSepare}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.coupleSepare}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.personneCelibataire}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.personneCelibataire}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.personneCouple}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.personneCouple}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.personneDivorcee}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.personneDivorcee}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.personneMariee}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.personneMariee}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.personneMoraleImmat}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.personneMoraleImmat}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.personneMoraleNonImmat}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.personneMoraleNonImmat}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.personnePacsee}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.personnePacsee}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.personneVeuve}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.personneVeuve}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.toutePersonne}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.toutePersonne}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.toutePersonneMorale}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.toutePersonneMorale}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+<!-- 														<td> -->
+<!-- 															<div th:if="${typeCritereAutoGeneration.toutePersonnePhysique}"> -->
+<!-- 																<i class="fa fa-check text-success text"></i> -->
+<!-- 															</div> -->
+<!-- 															<div th:unless="${typeCritereAutoGeneration.toutePersonnePhysique}"> -->
+<!-- 																<i class="fa fa-times text-danger text"></i> -->
+<!-- 															</div> -->
+
+<!-- 														</td> -->
+														
+														<td><a class="active" href="#modaldelete"
+															data-toggle="modal"
+															th:onclick="'javascript:delete(\'' + ${typeCritereAutoGeneration.id} + '\');'"><i
+																class="fa fa-trash-o" title="supprimer"></i></a></td>
+														<td><a th:href="@{|/typeCritereAutoGeneration/edit/${typeCritereAutoGeneration.id}}"> <i
+																class="fa fa-edit" title="éditer"></i>
+														</a></td>
+													</tr>
+
+												</tbody>
+											</table>
+										</div>
+									</section>
+								</section>
+								
+							</section>
+						</aside>
+
+					</section>
+					<a href="#" class="hide nav-off-screen-block"
+						data-toggle="class:nav-off-screen" data-target="#nav"></a>
+				</section>
+
+			</section>
+		</section>
+	</section>
+
+	<!-- Bootstrap -->
+	<!-- App -->
+
+	<div class="modal fade" id="modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModal">
+						<b>Notariat Admin TypeCritereAutoGeneration</b>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<p>Gestion TypeCritereAutoGeneration</p>
+					<section class="panel panel-default m-l-n-md m-r-n-md m-b-none">
+						<header class="panel-heading">
+							<span class="label bg-danger pull-right" id="version">4
+								left</span> <b><div id="nomVoie">Tasks</div></b>
+						</header>
+						<table class="table table-striped m-b-none text-sm">
+							<thead>
+								<tr>
+									<th>Information</th>
+									<th>Valeur</th>
+									<th width="20"></th>
+								</tr>
+							</thead>
+						
+							<tbody>
+								<tr id="item-1">
+									<td><div>Libelle:</div>
+										</td>
+									<td id="libelle"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>coupleChangementRegime</div></td>
+									<td id="coupleChangementRegime"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>coupleClassique</div></td>
+									<td id="coupleClassique"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>coupleSepare</div></td>
+									<td id="coupleSepare"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>personneCelibataire</div></td>
+									<td id="personneCelibataire"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>personneCouple</div></td>
+									<td id="personneCouple"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>personneDivorcee</div></td>
+									<td id="personneDivorcee"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>personneMariee</div></td>
+									<td id="personneMariee"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>personneMoraleImmat</div></td>
+									<td id="personneMoraleImmat"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>personneMoraleNonImmat</div></td>
+									<td id="personneMoraleNonImmat"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>personnePacsee</div></td>
+									<td id="personnePacsee"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>personneVeuve</div></td>
+									<td id="personneVeuve"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>toutePersonne</div></td>
+									<td id="toutePersonne"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>toutePersonneMorale</div></td>
+									<td id="toutePersonneMorale"></td>
+									<td></td>
+								</tr>
+								<tr id="item-1">
+									<td><div>toutePersonnePhysique</div></td>
+									<td id="toutePersonnePhysique"></td>
+									<td></td>
+								</tr>
+																
+
+
+							</tbody>
+						</table>
+					</section>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-rounded"
+						data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-info btn-rounded" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- Bootstrap -->
+	<!-- App -->
+
+	<div class="modal fade" id="modaldelete">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModal">Suppression Adresse Office</h4>
+				</div>
+				<div class="modal-body">
+					<p>Voulez-vous vraimant supprimer cet adresse office ?</p>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-rounded"
+						data-dismiss="modal">Close</button>
+					<a th:href="@{/office/delete}"><button type="button"
+							class="btn btn-info btn-rounded">OK</button></a>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<script language="javascript">
+		function show(typeCritereAutoGeneration) {
+			var typeCritereAutoGenerationdto = JSON.parse(typeCritereAutoGeneration);
+			//alert(JSON.stringify(typeCritereAutoGeneration));
+			$("#libelle").text(typeCritereAutoGenerationdto.libelle);
+			$("#coupleChangementRegime").text(typeCritereAutoGenerationdto.coupleChangementRegime);
+			$("#coupleClassique").text(typeCritereAutoGenerationdto.coupleClassique);
+			$("#coupleSepare").text(typeCritereAutoGenerationdto.coupleSepare);
+			$("#personneCelibataire").text(typeCritereAutoGenerationdto.personneCelibataire);
+			$("#personneCouple").text(typeCritereAutoGenerationdto.personneCouple);
+			$("#personneDivorcee").text(typeCritereAutoGenerationdto.personneDivorcee);
+			$("#personneMariee").text(typeCritereAutoGenerationdto.personneMariee);
+			$("#personneMoraleImmat").text(typeCritereAutoGenerationdto.personneMoraleImmat);
+			$("#personneMoraleNonImmat").text(typeCritereAutoGenerationdto.personneMoraleNonImmat);
+			$("#personnePacsee").text(typeCritereAutoGenerationdto.personnePacsee);
+			$("#personneVeuve").text(typeCritereAutoGenerationdto.personneVeuve);
+			$("#toutePersonne").text(typeCritereAutoGenerationdto.toutePersonne);
+			$("#toutePersonneMorale").text(typeCritereAutoGenerationdto.toutePersonneMorale);
+			$("#toutePersonnePhysique").text(typeCritereAutoGenerationdto.toutePersonnePhysique);
+			
+			
+		
+			
+			console.log($("#myModal").val());
+		}
+		function deleteoffice(office) {
+			var officedto = JSON.stringify(office);
+			$("#modaldelete").text(officedto);
+			console.log($("#modaldelete").val());
+		}
+	</script>
+	<!-- JS Includes -->
+	<div th:include="common/JSincludes.html" th:remove="tag"></div>
+</body>
+</html>

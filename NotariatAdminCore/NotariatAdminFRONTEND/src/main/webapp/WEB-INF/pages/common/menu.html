@@ -1,0 +1,347 @@
+<meta http-equiv="Content-Type" charset="UTF-8" content="text/html; charset=utf-8" />
+
+<!-- .aside -->
+				<aside class="bg-black aside-md hidden-print" id="nav">
+					<section class="vbox">
+						<section class="w-f scrollable">
+							<div class="slim-scroll" data-height="auto"
+								data-disable-fade-out="true" data-distance="0" data-size="10px"
+								data-color="#333333">
+								<div class="clearfix wrapper dk nav-user hidden-xs">
+									<div class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											<span class="thumb avatar pull-left m-r"> <img
+												th:src="@{/images/a0.jpg}"/> <i class="on md b-black"></i>
+										</span> <span class="hidden-nav-xs clear"> <span
+												class="block m-t-xs"> <strong
+													class="font-bold text-lt"> <span th:text="${username}">Allégoria</span></strong> <b
+													class="caret"></b>
+											</span> <span class="text-muted text-xs block">Administrateur</span>
+										</span>
+										</a>
+										<ul class="dropdown-menu animated fadeInRight m-t-xs">
+											<span class="arrow top hidden-nav-xs"></span>
+											<li><a href="#">Settings</a></li>
+											<li><a href="profile.html">Profile</a></li>
+											<li><a href="#"> <span
+													class="badge bg-danger pull-right">3</span> Notifications
+											</a></li>
+											<li><a href="docs.html">Help</a></li>
+											<li class="divider"></li>
+											<li><a href="../index.html" th:href="@{/index.html}" data-toggle="ajaxModal">Logout</a>
+											
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!-- nav -->
+								<nav class="nav-primary hidden-xs">
+									<div
+										class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Commencer</div>
+									<ul class="nav nav-main" data-ride="collapse">
+										<li class="active"><a th:href="@{/}" class="auto">
+												<i class="i i-statistics icon"> </i> <span class="font-bold">Acceuil</span>
+										</a></li>
+										<li><a href="#" class="auto"> <span
+												class="pull-right text-muted"> <i
+													class="i i-circle-sm-o text"></i> <i
+													class="i i-circle-sm text-active"></i>
+											</span> <b class="badge bg-danger pull-right">4</b> <i
+												class="i i-stack icon"> </i> <span class="font-bold">Allégoria</span>
+										</a>
+											</li>
+												<div class="line dk hidden-nav-xs"></div>
+												<div
+										class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Données de référence</div>
+										<li><a href="#" class="auto"> <span
+												class="pull-right text-muted"> <i
+													class="i i-circle-sm-o text"></i> <i
+													class="i i-circle-sm text-active"></i>
+											</span> <i class="i i-lab icon"> </i> <span class="font-bold">Gestion Office</span>
+										</a>
+											<ul class="nav dk">
+												<li><a  th:href="@{/office/create}" > <i
+														class="i i-dot"></i> <span>Nouveau Office</span>
+												</a>
+												</li>
+												
+											</ul>
+											<ul class="nav dk">
+												<li><a  th:href="@{/office/listeoffice}" > <b class="badge bg-danger pull-right"><div th:if="${offices}"><div th:text="${offices.size()}"></div></div></b> <i
+														class="i i-dot"></i> <span>Liste Office</span>
+												</a>
+												</li>
+												
+											</ul>
+										
+											<ul class="nav dk">
+												<li><a  th:href="@{/adresseoffice/listeadresseoffice}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste Adresse Office</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a  th:href="@{/adresseoffice/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Adresse Office</span>
+												</a></li>
+											</ul>
+												</li>
+											<li><a href="#" class="auto"> <span
+												class="pull-right text-muted"> <i
+													class="i i-circle-sm-o text"></i> <i
+													class="i i-circle-sm text-active"></i>
+											</span> <i class="i i-stack icon"> </i> <span class="font-bold">Gestion Acte</span>
+										</a>
+											<ul class="nav dk">
+												<li><a  th:href="@{/typeActe/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Type Acte</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeActe/listetypeActe}" class="auto">  <b class="badge bg-warning pull-right">4</b><i
+														class="i i-dot"></i> <span>Liste Type Acte</span>
+												</a></li>
+											</ul>
+											</li>
+											<li><a href="#" class="auto"> <span
+												class="pull-right text-muted"> <i
+													class="i i-circle-sm-o text"></i> <i
+													class="i i-circle-sm text-active"></i>
+											</span> <i class="i i-stack icon"> </i> <span class="font-bold">Gestion TypeCritereAutoGeneration</span>
+										</a>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeCritereAutoGeneration/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau TypeCritereAutoGeneration</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeCritereAutoGeneration/listetypeCritereAutoGeneration}" class="auto">  <b class="badge bg-warning pull-right">4</b><i
+														class="i i-dot"></i> <span>Liste TypeCritereAutoGeneration</span>
+												</a></li>
+											</ul>
+											</li>
+											<li><a href="#" class="auto"> <span
+												class="pull-right text-muted"> <i
+													class="i i-circle-sm-o text"></i> <i
+													class="i i-circle-sm text-active"></i>
+											</span> <i class="i i-laptop icon"> </i> <span class="font-bold">Gestion Sous Produit</span>
+										</a>
+											<ul class="nav dk">
+												<li><a th:href="@{/typeSousProduit/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Type Sous Produit</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a  th:href="@{/typeSousProduit/listetypeSousProduit}" class="auto"> <b class="badge bg-warning pull-right">4</b> <i
+														class="i i-dot"></i> <span>Liste Type Sous Produit</span>
+												</a></li>
+											</ul>
+											</li>
+											<li><a href="#" class="auto"> <span
+												class="pull-right text-muted"> <i
+													class="i i-circle-sm-o text"></i> <i
+													class="i i-circle-sm text-active"></i>
+											</span> <i class="i i-file-word icon"> </i> <span class="font-bold">Gestion Type Dossier</span>
+										</a>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeDossier/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Type Dossier</span>
+												</a></li>
+											</ul>
+												<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeDossier/listetypeDossier}" class="auto"> <b class="badge bg-warning pull-right">4</b> <i
+														class="i i-dot"></i> <span>Liste Type Dossier</span>
+												</a></li>
+											</ul>
+											</li>
+											<li><a href="#" class="auto"> <span
+												class="pull-right text-muted"> <i
+													class="i i-circle-sm-o text"></i> <i
+													class="i i-circle-sm text-active"></i>
+											</span> <i class="i i-mail2 icon"> </i> <span class="font-bold">Gestion Courrier</span>
+										</a>
+										<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeCourrier/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Type Courrier</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeCourrier/listetypeCourrier}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste Type Courrier</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeFamilleCourrier/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Type Famille Courrier</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeFamilleCourrier/listetypeFamilleCourrier}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste Type Famille Courrier</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeFamilleCourrierLocal/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau TypeFamilleCourrierLocal</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeFamilleCourrierLocal/listetypeFamilleCourrierLocal}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste TypeFamilleCourrierLocal</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeComparutionCourrier/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau TypeComparutionCourrier</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeComparutionCourrier/listetypeFamilleCourrierLocal}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste TypeComparutionCourrier</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a  th:href="@{/typeFamilleMereCourrier/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Type Famille Mère Courrier</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a  th:href="@{/typeFamilleMereCourrier/listetypeFamilleMereCourrier}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste Type Famille Mère Courrier</span>
+												</a></li>
+											</ul>
+											</li>
+											<li><a href="#" class="auto"> <span
+												class="pull-right text-muted"> <i
+													class="i i-circle-sm-o text"></i> <i
+													class="i i-circle-sm text-active"></i>
+											</span> <i class="i i-mail2 icon"> </i> <span class="font-bold">Autres</span>
+										</a>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typePiece/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Type Pièce</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typePiece/listetypePiece}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste Type Pièce</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a  th:href="@{/typeComparant/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Type Comparant</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a  th:href="@{/typeComparant/listetypeComparant}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste Type Comparant</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeRelationComparution/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau TypeRelationComparution</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeRelationComparution/listetypeRelationComparution}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste TypeRelationComparution</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeLocalFondPage/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Type Local Fonde du Page</span>
+												</a></li>
+											</ul>
+											<ul class="nav dk">
+												<li><a href="./companies.html" th:href="@{/typeLocalFondPage/listetypeLocalFondPage}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste Type Local Fonde du Page</span>
+												</a></li>
+											</ul>
+											
+											
+											</li>
+												<div class="line dk hidden-nav-xs"></div>
+										<li><a href="#" class="auto"> <span
+												class="pull-right text-muted"> <i
+													class="i i-circle-sm-o text"></i> <i
+													class="i i-circle-sm text-active"></i>
+											</span> <i class="i i-docs icon"> </i> <span class="font-bold">Sécurité</span>
+										</a>
+											<ul class="nav dk">
+											<div
+										class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Gestion des Accès</div>
+												<li><a th:href="@{/notaire/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Notaire</span>
+												</a></li>
+												<li><a   th:href="@{/notaire/listenotaire}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste Notaire</span>
+												</a></li>
+												<li><a th:href="@{/clerc/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Clerc</span>
+												</a></li>
+												<li><a  th:href="@{/clerc/listeclerc}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste Clerc</span>
+												</a></li>
+												<li><a  th:href="@{/secretaire/create}" class="auto"> <i
+														class="i i-dot"></i> <span>Nouveau Secretaire</span>
+												</a></li>
+												<li><a  th:href="@{/secretaire/listesecretaire}" class="auto"> <i
+														class="i i-dot"></i> <span>Liste Secretaire</span>
+												</a></li>
+												
+												
+											</ul></li>
+										<li><a href="#" class="auto"> <span
+												class="pull-right text-muted"> <i
+													class="i i-circle-sm-o text"></i> <i
+													class="i i-circle-sm text-active"></i>
+											</span> <i class="i i-grid2 icon"> </i> <span class="font-bold">Application</span>
+										</a>
+											<ul class="nav dk">
+												<li><a href="mail.html" class="auto"> <b
+														class="badge bg-success lt pull-right">2</b> <i
+														class="i i-dot"></i> <span>Mail</span>
+												</a></li>
+												<li><a href="fullcalendar.html" class="auto"> <i
+														class="i i-dot"></i> <span>Calendrier</span>
+												</a></li>
+											</ul></li>
+									</ul>
+									<!-- <div class="line dk hidden-nav-xs"></div>
+									<div
+										class="text-muted text-xs hidden-nav-xs padder m-t-sm m-b-sm">Lables</div>
+									<ul class="nav">
+										<li><a href="mail.html#work"> <i
+												class="i i-circle-sm text-info-dk"></i> <span>Work
+													space</span>
+										</a></li>
+										<li><a href="mail.html#social"> <i
+												class="i i-circle-sm text-success-dk"></i> <span>Connection</span>
+										</a></li>
+										<li><a href="mail.html#projects"> <i
+												class="i i-circle-sm text-danger-dk"></i> <span>Projects</span>
+										</a></li>
+									</ul>
+									<div
+										class="text-muted text-xs hidden-nav-xs padder m-t-sm m-b-sm">Circles</div>
+									<ul class="nav">
+										<li><a href="#"> <i
+												class="i i-circle-sm-o text-success-lt"></i> <span>College</span>
+										</a></li>
+										<li><a href="#"> <i
+												class="i i-circle-sm-o text-warning"></i> <span>Social</span>
+										</a></li>
+									</ul> -->
+								</nav>
+								<!-- / nav -->
+							</div>
+						</section>
+						<footer class="footer hidden-xs no-padder text-center-nav-xs">
+							<a href="#nav" data-toggle="class:nav-xs"
+								class="btn btn-icon icon-muted btn-inactive m-l-xs m-r-xs">
+								<i class="i i-circleleft text"></i> <i
+								class="i i-circleright text-active"></i>
+							</a>
+						</footer>
+					</section>
+				</aside>
+				<!-- /.aside -->
